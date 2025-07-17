@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { db } from "../../../server/db";
-import { users } from "../../../server/db/schema";
+import { db } from "~/server/db";
+import { users } from "~/server/db/schema";
+
 export async function GET() {
   try {
     const allUsers = await db.select().from(users);

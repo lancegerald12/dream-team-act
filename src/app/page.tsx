@@ -17,19 +17,17 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const response = await fetch("/api/users");
-        if (!response.ok) {
-          throw new Error("Failed to fetch users");
-        }
-        const data: User[] = (await response.json()) as User[];
+        const response = await fetch("/api/users"); // ✅ Relative path okay on client
+        if (!response.ok) throw new Error("Failed to fetch users");
+        const data = (await response.json()) as User[];
         setUsers(data);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     }
 
-    void fetchUsers();
-  }, []);
+    fetchUsers();
+  }, []); // ✅ dependency array
 
   return (
     <main className="bg-white">
