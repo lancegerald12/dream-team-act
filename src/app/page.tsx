@@ -29,7 +29,7 @@ export default function HomePage() {
     }
 
     void fetchUsers();
-  });
+  }, []);
 
   return (
     <main className="bg-white">
